@@ -1,0 +1,35 @@
+name: CI_build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1
+
+    - name: premake download
+      working-directory: .\
+      run: |
+           $url = "https://github.com/premake/premake-core/releases/download/v5.0.0-beta2/premake-5.0.0-beta2-windows.zip"
+           $output = "$env:GITHUB_WORKSPACE\premake-5.0.0-beta2-windows.zip"
+           (New-Object System.Net.WebClient).DownloadFile($url, $output)
+           7z x premake-5.0.0-beta2-windows.zip | Out-Null
+           Get-ChildItem -Path .\
+
+    - name: premake setup and build
+      working-directory: .\
+      run: |
+           .\premake5.exe setup
+           .\premake5.exe vs2022
+           .\premake5.exe build
+
+    - name: premake package-plugins
+      working-directory: .\
+      run: .\premake5.exe package-plugins

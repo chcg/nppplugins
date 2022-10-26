@@ -31,7 +31,7 @@ SolutionHub is just an file/solution/connections service and SolutionHub UI lets
 
 __Dependencies__
 
-[premake5](https://premake.github.io/download.html#v5)
+[premake5](https://premake.github.io/download)
 
 __Getting Source__
 
@@ -40,7 +40,7 @@ __Getting Source__
 __Quick Start__
 
 * Clone the [nppplugins](https://github.com/incrediblejr/nppplugins) git repository
-* Download [premake5](https://premake.github.io/download.html#v5) and place it in the root of the cloned repository
+* Download [premake5](https://premake.github.io/download) and place it in the root of the cloned repository
 * Open a commandprompt in the root of the cloned repository
 * Setup the local development environment by running:
 

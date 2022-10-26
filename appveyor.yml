@@ -1,9 +1,9 @@
-image: Visual Studio 2017
+image: Visual Studio 2022
 
 
 install:
   # Download Premake
-  - ps: Start-FileDownload 'https://github.com/premake/premake-core/releases/download/v5.0.0-alpha14/premake-5.0.0-alpha14-windows.zip' 'premake.zip'
+  - ps: Start-FileDownload 'https://github.com/premake/premake-core/releases/download/v5.0.0-beta2/premake-5.0.0-beta2-windows.zip' 'premake.zip'
   
   # Extract it in-place; premake5.exe is at the top level.
   - 7z x premake.zip
